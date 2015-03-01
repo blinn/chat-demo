@@ -1,0 +1,31 @@
+<section class="module" data-ng-controller="ChatController">
+	
+  <form ng-keyup="$event.keyCode == 13 && sendMessage()">
+    <header class="top-bar">
+
+      <div class="left">
+        <span class="icon typicons-message"></span>
+        <h1>Hangouts</h1>
+      </div>
+
+      <div class="right">
+        <span class="icon typicons-minus"></span>
+        <span class="icon typicons-times"></span>
+      </div>
+
+    </header>
+
+    <ol class="discussion">
+      <li ng-repeat="mes in messages" ng-class="mes.user == currentUser ? 'self':'other'">
+        <div class="avatar">
+          <img src="{{mes.avatar}}" />
+        </div>
+        <div class="messages">
+          <p>{{mes.message}}</p>
+          <span class="time">{{mes.user}} • 51 min</span>
+        </div>
+      </li>
+    </ol>
+    <input class="message" type="text" ng-model="message" />
+  </form>
+</section>
