@@ -1,20 +1,16 @@
 <section data-ng-controller="HomeController">
 	<br/>
 	<div class="row">
-		<input type="text" ng-model="newFriend" />
-		<button class="btn btn-primary" ng-click="addFriend()">Add Friend</button>
-	</div>
-	<div class="row">
-		<div ng-repeat="item in friendsList">
-			<div class="label label-success">{{item.displayName}}</div>
-		</div>
+		<h3>Chat Demo Yo</h3>
 	</div>
 	<br>Enjoy &amp; Keep Us Updated,
 	<br>
 	<div>{{friendsList.length}}</div>
-	<div class="chat-container" data-ng-controller="ChatController">
-	    <span bl-chat-module></span>
-		<span bl-chat-module></span>
+	<div data-ng-controller="ChatController">
+		<div class="friend-list">
+			<span bl-friend-list></span>
+		</div>
+		<div class="chat-container">
+		</div>
 	</div>
-	<div chat-window></div>
 </section>

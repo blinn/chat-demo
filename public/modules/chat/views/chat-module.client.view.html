@@ -1,21 +1,21 @@
-<section class="module" data-ng-controller="ChatController">
+<section class="module">
 	
   <form ng-keyup="$event.keyCode == 13 && sendMessage()">
     <header class="top-bar">
 
       <div class="left">
-        <span class="icon typicons-message"></span>
-        <h1>Hangouts</h1>
+        <span class="fa fa-comments"></span>
+        <h1>{{username}}</h1>
       </div>
 
       <div class="right">
-        <span class="icon typicons-minus"></span>
-        <span class="icon typicons-times"></span>
+        <span ng-click="toggleChat()" ng-class="isOpen ? 'fa fa-minus':'fa fa-plus'"></span>
+        <span ng-click="closeChat()"><i class="fa fa-close"></i></span>
       </div>
 
     </header>
 
-    <ol class="discussion">
+    <ol ng-show="isOpen" class="discussion">
       <li ng-repeat="mes in messages" ng-class="mes.user == currentUser ? 'self':'other'">
         <div class="avatar">
           <img src="{{mes.avatar}}" />
@@ -26,6 +26,6 @@
         </div>
       </li>
     </ol>
-    <input class="message" type="text" ng-model="message" />
+    <input ng-show="isOpen" class="message" type="text" ng-model="message" />
   </form>
 </section>

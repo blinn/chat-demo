@@ -17,10 +17,50 @@
 
 /* Styles go here */
 
+
+
 .chat-container {
   position:absolute;
   bottom:0px;
-  right:0px;
+  right: 300px;
+}
+
+.friend-list {
+  height: 100%;
+  width: 300px;
+  float: right;
+  background-color: lightgray;
+  border:1px solid #666;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  padding-top: 60px;
+}
+
+.friend-list .add-container, .friend-list ul {
+  padding-left: 5px;
+  padding-right:5px;
+}
+
+.friend-list .add-response {
+  text-align: center;
+  color: red;
+}
+
+.friend-list li {
+  list-style: none;
+  height: auto;
+  width:100%;
+  margin-bottom:5px;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.friend-list li:hover {
+    color: black;
+    cursor: pointer;
+    border-top: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
 }
 
 .chat-container .module {
@@ -28,6 +68,10 @@
   margin: 2px;
   float:right;
   right: 0px;
+}
+
+.chat-container .module .chat-collapsed {
+  bottom: -330px;
 }
 
 .module .message{
@@ -72,13 +116,11 @@
   right: 0;
   bottom: -100%;
   opacity: 0.25;
-  background: radial-gradient(#ffffff, #000000);
-  animation: pulse 1s ease alternate infinite;
 }
 
 .discussion {
   list-style: none;
-  background: #e5e5e5;
+  background: lightgray;
   margin: 0;
   padding: 0 0 50px 0;
   overflow-y: auto;

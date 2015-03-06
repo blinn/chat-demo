@@ -4,11 +4,12 @@ angular.module('chat').directive('blChatModule', function(){
   return {
     templateUrl: 'modules/chat/views/chat-module.client.view.html',
     restrict: 'AE',
-    scope: true,
-    controller: function($scope){
-      $scope.currentUser = 'blinn';
+    scope: { username: '@' },
+    controller: function($scope, mySocket){
+      $scope.isOpen = true;
       $scope.messages = [];
-      $scope.message = '23';
+      $scope.message = '';
+
       $scope.sendMessage = function(){
         var msg = {
           user: $scope.currentUser,
@@ -18,7 +19,21 @@ angular.module('chat').directive('blChatModule', function(){
         console.log(msg);
         $scope.messages.push(msg);
         $scope.message = '';
-    };
+
+        mySocket.emit('message', msg.message);
+      };
+
+      $scope.toggleChat = function(){
+        $scope.isOpen = !$scope.isOpen;
+      };
+
+      $scope.closeChat = function(){
+
+      };
+
+      mySocket.on('broadcast', function(msg) {
+        console.log('Server response', msg);
+      });
     }
   };
 });
