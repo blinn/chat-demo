@@ -19,11 +19,7 @@
 
 
 
-.chat-container {
-  position:absolute;
-  bottom:0px;
-  right: 300px;
-}
+
 
 .friend-list {
   height: 100%;
@@ -63,12 +59,28 @@
     border-bottom: 1px solid darkgray;
 }
 
+.chat-container {
+  position:absolute;
+  bottom:0px;
+  right: 0px;
+}
+
 .chat-container .module {
   width: 300px;
   margin: 2px;
   float:right;
   right: 0px;
 }
+
+.chat-container > span {
+  position: absolute;
+  bottom: 0px;
+}
+
+.chat-container > span:nth-child(1) { right:303px;}
+.chat-container > span:nth-child(2) { right: 606px}
+.chat-container > span:nth-child(3) { right:909px;}
+.chat-container > span:nth-child(4) { right: 1212px;}
 
 .chat-container .module .chat-collapsed {
   bottom: -330px;
